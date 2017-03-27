@@ -9,8 +9,9 @@ export function wrapWithAsync (script) {
 
 export function asyncNode (filename) {
   let tmppath;
+  let out;
 
-  p(fs.readFile)(filename, 'utf8')
+  return p(fs.readFile)(filename, 'utf8')
     .then(data => {
       const script = wrapWithAsync(data);
       return tempWrite(script);
@@ -19,17 +20,11 @@ export function asyncNode (filename) {
       tmppath = path;
       return p(exec)(`node ${path}`);
     })
-    .then(out => {
-      process.stdout.write(out);
+    .then(o => {
+      out = o;
     })
     .then(() => {
-      if (!tmppath) {
-        return;
-      }
       return p(fs.unlink)(tmppath);
     })
-    .catch(e => {
-      console.error(`Failed to run script: ${filename}`);
-      console.error(e);
-    });
+    .then(() => out);
 }
