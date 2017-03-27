@@ -42,5 +42,10 @@ if (cli.flags.transform) {
       process.exit(-1);
     });
 } else {
-  asyncNode(cli.input[0]);
+  asyncNode(cli.input[0])
+    .catch(err => {
+      console.error('ERROR: failed to execute script');
+      console.error(err);
+      process.exit(-1);
+    });
 }
