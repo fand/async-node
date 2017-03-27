@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const { asyncNode } = require('../lib');
+const semver = require('semver');
 const meow = require('meow');
 const usage = `
   Usage
@@ -14,15 +15,9 @@ if (!cli.input[0]) {
   cli.showHelp(-1);
 }
 
-asyncNode(cli.input[0]);
+if (!semver.satisfies(process.version, '>=7.6.0')) {
+  console.error(`async-node only works on Node.js >= 7.6.0`);
+  process.exit(-1);
+}
 
-// p(fs.readFile)(cli.input[0], 'utf8')
-//   .then()
-//   .then(data => {
-//     console.log(data);
-//   })
-//   .catch(err => {
-//     console.error('ERROR: failed to compile markdown file');
-//     console.error(err);
-//     process.exit(-1);
-//   });
+asyncNode(cli.input[0]);
