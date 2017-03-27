@@ -43,6 +43,9 @@ if (cli.flags.transform) {
     });
 } else {
   asyncNode(cli.input[0])
+    .then(data => {
+      process.stdout.write(data);
+    })
     .catch(err => {
       console.error('ERROR: failed to execute script');
       console.error(err);

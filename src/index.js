@@ -9,6 +9,7 @@ export function wrapWithAsync (script) {
 
 export function asyncNode (filename) {
   let tmppath;
+  let out;
 
   return p(fs.readFile)(filename, 'utf8')
     .then(data => {
@@ -19,13 +20,14 @@ export function asyncNode (filename) {
       tmppath = path;
       return p(exec)(`node ${path}`);
     })
-    .then(out => {
-      process.stdout.write(out);
+    .then(o => {
+      out = o;
     })
     .then(() => {
       if (!tmppath) {
         return;
       }
       return p(fs.unlink)(tmppath);
-    });
+    })
+    .then(() => out);
 }
