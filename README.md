@@ -19,5 +19,16 @@ $ async-node foo.js
 RESOLVED!
 ```
 
+`-t` ( or `--transform`) will output transformed script to stdout.
+
+```
+$ async-node -t foo.js > bar.js
+$ cat bar.js
+(async function () { const res = await Promise.resolve('RESOLVED!');
+console.log(res);
+ })().catch(e => {})
+```
+
+
 ### LICENSE
 MIT
