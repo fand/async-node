@@ -1,7 +1,6 @@
 import test from 'ava';
 import fs from 'fs';
 import { execFileSync } from 'child_process';
-import 'babel-polyfill';
 
 test('async-node -t', t => {
   const actual = execFileSync(`${__dirname}/../bin/cli.js`, ['-t', `${__dirname}/input`]).toString();

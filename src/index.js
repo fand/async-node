@@ -24,9 +24,6 @@ export function asyncNode (filename) {
       out = o;
     })
     .then(() => {
-      if (!tmppath) {
-        return;
-      }
       return p(fs.unlink)(tmppath);
     })
     .then(() => out);
