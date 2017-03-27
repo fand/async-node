@@ -1,0 +1,60 @@
+{
+  "name": "@fand/async-node",
+  "description": "Run node.js scripts wrapped with async function",
+  "version": "0.0.0",
+  "author": "fand <fand@gmork.in>",
+  "ava": {
+    "require": "babel-register",
+    "babel": "inherit"
+  },
+  "bin": "bin/cli.js",
+  "bugs": {
+    "url": "https://github.com/fand/async-node/issues"
+  },
+  "dependencies": {
+    "meow": "^3.7.0",
+    "pify": "^2.3.0",
+    "temp-write": "^3.1.0"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-cli": "^6.23.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "coveralls": "^2.11.16",
+    "cross-env": "^3.1.4",
+    "dedent": "^0.7.0",
+    "eslint": "^3.16.1",
+    "eslint-config-xo": "^0.17.0",
+    "nyc": "^10.1.2"
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "homepage": "https://github.com/fand/async-node/issues",
+  "keywords": [
+    "async",
+    "await",
+    "cli"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "nyc": {
+    "include": [
+      "src/",
+      "bin/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fand/async-node"
+  },
+  "scripts": {
+    "build": "cross-env BABEL_ENV=production babel src --out-dir lib",
+    "test": "nyc ava test",
+    "prepublishOnly": "npm test && npm run build",
+    "lint": "eslint src test",
+    "ci": "npm run build && npm run lint && npm run test"
+  }
+}
