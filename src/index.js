@@ -18,7 +18,7 @@ export function asyncNode (filename) {
     })
     .then(path => {
       tmppath = path;
-      return p(exec)(`node ${path}`);
+      return p(exec)(`NODE_PATH=$(pwd)/node_modules node ${path}`);
     })
     .then(o => {
       out = o;
