@@ -10,11 +10,7 @@ const usage = `
   Example
     $ async-node foo.js
 `;
-const cli = meow(usage, {
-  alias: {
-    t: 'transform',
-  },
-});
+const cli = meow(usage);
 
 const [filename, ...args] = cli.input;
 if (!filename) {

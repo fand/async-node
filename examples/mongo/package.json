@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "get": "$(npm bin)/async-node index.js -- -g",
-    "set": "$(npm bin)/async-node index.js -- -s",
+    "get": "$(npm bin)/async-node index.js -g",
+    "set": "$(npm bin)/async-node index.js -s",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -21,6 +21,12 @@ test('async-node with non-JavaScript file', t => {
   t.regex(error.stderr.toString(), /ERROR/);
 });
 
+test('async-node with arguments', t => {
+  const actual = execFileSync(`${__dirname}/../bin/async-node.js`, [`${__dirname}/arguments`, 'foo', 'bar']).toString();
+  console.log(actual);
+  t.is(actual, '["foo","bar"]\n');
+});
+
 test('wrap-with-async', t => {
   const actual = execFileSync(`${__dirname}/../bin/wrap-with-async.js`, [`${__dirname}/input`]).toString();
   const expected = fs.readFileSync(`${__dirname}/output`, 'utf8');
