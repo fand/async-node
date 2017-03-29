@@ -1,11 +1,13 @@
-var fs = require('fs');
-var Nightmare = require('nightmare');
-var download = require('download');
+const fs = require('fs');
+const Nightmare = require('nightmare');
+const download = require('download');
 
-// Search 'cat' images from GIPHY
+const keyword = process.argv[2] || 'cat';
+
+// Search images from GIPHY
 const urls = await Nightmare({ show: true, loadTimeout: 5000, executionTimeout: 5000 })
   .goto('https://giphy.com/')
-  .type('#search-box', 'cat')
+  .type('#search-box', keyword)
   .click('#search-button')
   .wait('#gif-results')
   .evaluate(() => {

@@ -4,15 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "get": "$(npm bin)/async-node index.js -- -g",
-    "set": "$(npm bin)/async-node index.js -- -s",
+    "get": "async-node index.js -g",
+    "set": "async-node index.js -s",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "fand <fand@gmork.in>",
   "license": "MIT",
   "dependencies": {
-    "@fand/async-node": "^0.1.1",
     "minimist": "^1.2.0",
     "mongodb": "^2.2.25"
   }
