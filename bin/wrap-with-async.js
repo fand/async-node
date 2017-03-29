@@ -13,12 +13,12 @@ const usage = `
 `;
 const cli = meow(usage);
 
-const target = cli.input[0];
-if (!target) {
+const filename = cli.input[0];
+if (!filename) {
   cli.showHelp(-1);
 }
 
-p(fs.readFile)(cli.input[0], 'utf8')
+p(fs.readFile)(filename, 'utf8')
   .then(data => {
     console.log(wrapWithAsync(data));
   })

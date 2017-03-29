@@ -16,8 +16,8 @@ const cli = meow(usage, {
   },
 });
 
-const target = cli.input[0];
-if (!target) {
+const [filename, ...args] = cli.input;
+if (!filename) {
   cli.showHelp(-1);
 }
 
@@ -26,7 +26,7 @@ if (!semver.satisfies(process.version, '>=7.6.0')) {
   process.exit(-1);
 }
 
-asyncNode(cli.input[0], cli.input.slice(1))
+asyncNode(filename, args)
   .then(data => {
     process.stdout.write(data);
   })
