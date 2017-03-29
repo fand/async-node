@@ -42,7 +42,7 @@ if (cli.flags.transform) {
       process.exit(-1);
     });
 } else {
-  asyncNode(cli.input[0])
+  asyncNode(cli.input[0], cli.input.slice(1))
     .then(data => {
       process.stdout.write(data);
     })

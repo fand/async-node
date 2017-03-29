@@ -7,7 +7,7 @@ export function wrapWithAsync (script) {
   return '(async function () { ' + script + ' })().catch(e => {})';
 }
 
-export function asyncNode (filename) {
+export function asyncNode (filename, args = []) {
   let tmppath;
   let out;
 
@@ -18,7 +18,7 @@ export function asyncNode (filename) {
     })
     .then(path => {
       tmppath = path;
-      return p(exec)(`NODE_PATH=$(pwd)/node_modules node ${path}`);
+      return p(exec)(`NODE_PATH=$(pwd)/node_modules node ${path} ${args.map(x => `"${x.replace(/"/g, '\\"')}"`).join(' ')}`.trim());
     })
     .then(o => {
       out = o;
