@@ -6,7 +6,7 @@ test('wrapWithAsync()', t => {
 });
 
 test('asyncNode()', t => {
-  return asyncNode(`${__dirname}/input`).then(o => {
+  return asyncNode(`${__dirname}/fixtures/input.js`).then(o => {
     t.is(o, 'RESOLVED!\n');
   });
 });
