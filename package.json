@@ -1,7 +1,7 @@
 {
   "name": "@fand/async-node",
   "description": "Run node.js scripts wrapped with async function",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "fand <fand@gmork.in>",
   "ava": {
     "require": "babel-register",
