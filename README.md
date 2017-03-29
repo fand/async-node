@@ -5,6 +5,10 @@
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](http://fand.mit-license.org/)
 [![Coverage Status](https://img.shields.io/coveralls/fand/async-node.svg?style=flat-square)](https://coveralls.io/github/fand/async-node?branch=master)
 
+You can write `await`s on top level!
+
+![example](https://cloud.githubusercontent.com/assets/1403842/24457202/7dca1bce-14d0-11e7-9df7-d1a674b46198.png)
+
 ## Install
 
 `npm i -g @fand/async-node`
@@ -33,4 +37,5 @@ console.log(res);
 ```
 
 ### LICENSE
+
 MIT
