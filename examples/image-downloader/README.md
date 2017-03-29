@@ -1,11 +1,12 @@
 # image-downloader
 
-Download random `cat` image from https://giphy.com/ to 'out.gif'.
+Get random image for keyword from https://giphy.com/ .
 
 ## Usage
 
 ```
 $ npm i -g @fand/async-node
 $ npm i
-$ async-node index.js
+$ async-node index.js cat
+$ open out.gif
 ```
