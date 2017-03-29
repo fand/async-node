@@ -12,7 +12,9 @@ const usage = `
 `;
 const cli = meow(usage);
 
-const [filename, ...args] = cli.input;
+// Can't use cli.input be cause it removes options in process.argv.
+const [filename, ...args] = Array.from(process.argv).slice(2);
+
 if (!filename) {
   cli.showHelp(-1);
 }
