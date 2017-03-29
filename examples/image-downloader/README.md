@@ -5,6 +5,7 @@ Download random `cat` image from https://giphy.com/ to 'out.gif'.
 ## Usage
 
 ```
+$ npm i -g @fand/async-node
 $ npm i
-$ npm start
+$ async-node index.js
 ```
