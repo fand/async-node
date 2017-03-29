@@ -6,9 +6,12 @@
 [![Coverage Status](https://img.shields.io/coveralls/fand/async-node.svg?style=flat-square)](https://coveralls.io/github/fand/async-node?branch=master)
 
 ## Install
+
 `npm i -g @fand/async-node`
 
 ## Usage
+
+`async-node` runs Node.js scripts wrapping them with `async` function.
 
 ```
 $ cat foo.js
@@ -19,16 +22,15 @@ $ async-node foo.js
 RESOLVED!
 ```
 
-`-t` ( or `--transform`) will output transformed script to stdout.
+`wrap-with-async` will output transformed script to stdout.
 
 ```
-$ async-node -t foo.js > bar.js
+$ wrap-with-async foo.js > bar.js
 $ cat bar.js
 (async function () { const res = await Promise.resolve('RESOLVED!');
 console.log(res);
  })().catch(e => {})
 ```
-
 
 ### LICENSE
 MIT
